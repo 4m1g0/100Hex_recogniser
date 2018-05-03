@@ -41,7 +41,7 @@ This script reads all the stl files from one directory and convert them to image
  - Invert the image to make the background back
  - Generates a mirrored copy to train the model with both normal and mirrored version of the HEX (as some where placed that way on the wall)
  
-![Binary hex image](doc/oshwdem3.stl.png "Stl converted to image and made binary")
+![Binary hex image](doc/oshwem3.stl.png "Stl converted to image and made binary")
 
 ### detection.py
 This is where magic happens. Here we use OpenCV to train a model with each of the images generated before in order to find occurrences in the reference image.
@@ -54,5 +54,5 @@ The code is structured as follows:
  - If the match exceeds certain confidence level is marked as valid
  - The zone and the matches are marked on the original image and is shown to user
 
-![Match found](doc/pattern_match.stl.png "Pattern found on the reference image")
-![Match found2](doc/pattern_match2.stl.png "Pattern found on the reference image")
+![Match found](doc/pattern_match.png "Pattern found on the reference image")
+![Match found2](doc/pattern_match2.png "Pattern found on the reference image")
