@@ -18,7 +18,7 @@ def main():
 
     f = open(ff, "w")
     f.write("import(\"%s\");\n" % fin)
-    f.write("$vpr = [ 0,0,0 ];")
+    f.write("$vpr = [ 0,0,0 ];") # set orthogonal camera
     f.close()
 
     cmd = "openscad -o %s.png --camera=0,0,0,0,0,0,310 --imgsize=%s,%s %s" % (fout, size, size, ff)
