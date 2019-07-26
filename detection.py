@@ -4,8 +4,8 @@ import os
 from matplotlib import pyplot as plt
 MIN_MATCH_COUNT = 7
 
-img = cv2.imread('full_mask.jpg',0)          # queryImage
-imgOrg = cv2.imread('full_mask.jpg',1)   
+img = cv2.imread('mask_after.jpg',0)          # queryImage
+imgOrg = cv2.imread('mask_after.jpg',1)   
 # Initiate SIFT detector
 sift = cv2.xfeatures2d.SIFT_create()
 # find the keypoints and descriptors with SIFT
@@ -31,7 +31,9 @@ for file in os.listdir(directory):
             good.append(m)
     
     img2 = imgOrg.copy()
+    found = ""
     if len(good)>MIN_MATCH_COUNT:
+        found = "FOUND_"
         #print(filename)
         #continue
         src_pts = np.float32([ kp1[m.queryIdx].pt for m in good ]).reshape(-1,1,2)
@@ -57,4 +59,5 @@ for file in os.listdir(directory):
                        matchesMask = matchesMask, # draw only inliers
                        flags = 2)
     img3 = cv2.drawMatches(img1,kp1,img2,kp2,good,None,**draw_params)
-    plt.imshow(img3),plt.show()
+    cv2.imwrite('results/' + found + filename,img3)
+    #plt.imshow(img3),plt.show()

@@ -21,7 +21,7 @@ def main():
     f.write("$vpr = [ 0,0,0 ];") # set orthogonal camera
     f.close()
 
-    cmd = "openscad -o %s.png --camera=0,0,0,0,0,0,310 --imgsize=%s,%s %s" % (fout, size, size, ff)
+    cmd = "openscad -o %s.png --camera=0,0,0,0,0,0,610 --imgsize=%s,%s %s" % (fout, size, size, ff)
     os.system(cmd)
 
     os.remove(ff)
